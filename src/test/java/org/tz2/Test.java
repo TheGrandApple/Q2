@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-@Timeout(value = 200, unit = TimeUnit.MILLISECONDS)
+@Timeout(value = 300, unit = TimeUnit.MILLISECONDS)
 public class Test {
 
     @org.junit.jupiter.api.Test
@@ -99,7 +99,7 @@ public class Test {
         long t1 = System.nanoTime();
         long[] numbers = Functions.readFile("testSumTime.txt");
 
-        Thread.sleep(200);
+        Thread.sleep(300);
         long sumTotal = Functions.sum(numbers);
 
         long t2 = System.nanoTime();

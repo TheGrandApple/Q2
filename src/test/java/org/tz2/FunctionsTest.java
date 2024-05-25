@@ -97,20 +97,6 @@ public class FunctionsTest {
     }
 
     @Test
-    @Disabled
-    void checkTime() throws InterruptedException {
-        long t1 = System.nanoTime();
-        long[] numbers = Functions.readFile("testSumTime.txt");
-
-        Thread.sleep(300);
-        long sumTotal = Functions.sum(numbers);
-
-        long t2 = System.nanoTime();
-        System.out.println(t2-t1);
-        assertEquals(498899085, sumTotal);
-    }
-
-    @Test
     void checkException() {
         long[] numbers = Functions.readFile("testException.txt");
 

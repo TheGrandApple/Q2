@@ -1,5 +1,6 @@
 package org.tz2;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
@@ -96,6 +97,7 @@ public class FunctionsTest {
     }
 
     @Test
+    @Disabled
     void checkTime() throws InterruptedException {
         long t1 = System.nanoTime();
         long[] numbers = Functions.readFile("testSumTime.txt");

@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class FunctionsTest {
 
     @Test
-    void checkSum() {
+    void TestCheckSumTest() {
         long[] numbers = Functions.readFile("testSum.txt");
 
         long sumTotal = Functions.sum(numbers);

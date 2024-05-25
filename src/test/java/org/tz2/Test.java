@@ -1,6 +1,5 @@
 package org.tz2;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
 import java.util.concurrent.TimeUnit;
@@ -8,9 +7,9 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 
 @Timeout(value = 200, unit = TimeUnit.MILLISECONDS)
-public class Tester {
+public class Test {
 
-    @Test
+    @org.junit.jupiter.api.Test
     void checkSum() {
         long[] numbers = Functions.readFile("testSum.txt");
 
@@ -19,7 +18,7 @@ public class Tester {
         assertEquals(11, sumTotal);
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void checkMult() {
         long[] numbers = Functions.readFile("testMult.txt");
 
@@ -28,7 +27,7 @@ public class Tester {
         assertEquals(120, multTotal);
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void checkMax() {
         long[] numbers = Functions.readFile("testMax.txt");
 
@@ -37,7 +36,7 @@ public class Tester {
         assertEquals(92, maxTotal);
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void checkMin() {
         long[] numbers = Functions.readFile("testMin.txt");
 
@@ -46,7 +45,7 @@ public class Tester {
         assertEquals(0, minTotal);
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void checkSumTime() {
         long t1 = System.nanoTime();
         long[] numbers = Functions.readFile("testSumTime.txt");
@@ -58,7 +57,7 @@ public class Tester {
         assertEquals(498899085, sumTotal);
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void checkMaxTime() {
         long t1 = System.nanoTime();
         long[] numbers = Functions.readFile("testMaxTime.txt");
@@ -70,7 +69,7 @@ public class Tester {
         assertEquals(99980, maxTotal);
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void checkMinTime() {
         long t1 = System.nanoTime();
         long[] numbers = Functions.readFile("testMinTime.txt");
@@ -82,7 +81,7 @@ public class Tester {
         assertEquals(4, minTotal);
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void checkMultTime() { // файл для проверки умножения значительно короче остальных, так как иначе произведение выходит на Long.MAXVALUE
         long t1 = System.nanoTime();
         long[] numbers = Functions.readFile("testMultTime.txt");
@@ -94,7 +93,7 @@ public class Tester {
         assertEquals(8589934592L, multTotal);
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void checkTime() throws InterruptedException {
         long t1 = System.nanoTime();
         long[] numbers = Functions.readFile("testSumTime.txt");
@@ -107,7 +106,7 @@ public class Tester {
         assertEquals(498899085, sumTotal);
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     void checkException() {
         long[] numbers = Functions.readFile("testException.txt");
 

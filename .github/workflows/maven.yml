@@ -33,9 +33,16 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Tests
       run: mvn test --file pom.xml
-    - name: Send Telegram Message
+    - name: Send Message Success
       uses: appleboy/telegram-action@master
+      if: success()
       with:
-          to: ${{ secrets.TELEGRAMCHANNELID }}
-          token: ${{ secrets.TELEGRAMAPIKEY }}
-          message: ${{ job.status == 'success' && 'Tests passed successfully! Good job!' || 'Tests failed! Check the details.' }}
+        to: ${{ secrets.TELEGRAMCHANNELID }}
+        token: ${{ secrets.TELEGRAMAPIKEY }}
+        message: "Tests passed successfully! Good job!"
+    - name: Send Message Fail
+      if: failure()
+      with:
+        to: ${{ secrets.TELEGRAMCHANNELID }}
+        token: ${{ secrets.TELEGRAMAPIKEY }}
+        message: "Tests failed! Check the details."

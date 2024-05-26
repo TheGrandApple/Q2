@@ -46,4 +46,4 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAMCHANNELID }}
         token: ${{ secrets.TELEGRAMAPIKEY }}
-        message: "Tests failed! Check the details."
+        message: "Tests failed! Check the details. Failed tests: ${{ join(github.event.job.steps.*.outcome, '\n') }}"

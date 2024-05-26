@@ -37,5 +37,5 @@ jobs:
       uses: cbrgm/telegram-github-action@v1
       with:
           token: ${{ secrets.TELEGRAMAPIKEY }}
-          to: ${{ secrets.TELEGRAMCHANNELID }}
+          to: ${{ @TheGrandApple }}
           message: "hi"

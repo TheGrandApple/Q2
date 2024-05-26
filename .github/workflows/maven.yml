@@ -50,15 +50,4 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAMCHANNELID }}
         token: ${{ secrets.TELEGRAMAPIKEY }}
-      env:
-        MES: ${{Проект завершился с ошибкой. Лог тестирования}}
-        FAILED_TESTS: ${{ steps.test-report.outputs.failures }}
-        message: | 
-          ${{ env.MES }} ${{ env.FAILED_TESTS }}
-        chat_id: ${{ secrets.CHAT_ID }}
-        
-    - name: Fetch Test Report
-      id: test-report
-      run: |
-        FAILED_TESTS=$(grep '<<< FAILURE!' target/surefire-reports/org.example.Test.txt)
-        echo "::set-output name=failures::$FAILED_TESTS"
+        "message": "Какие-то тесты не прошли. Зайдите на github actions, чтобы подробнее изучить проблему"

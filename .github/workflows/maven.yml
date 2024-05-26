@@ -37,7 +37,7 @@ jobs:
       id: test_summary
       uses: test-summary/action@v2
       with:
-        paths: "test/results/**/TEST-*.xml"
+        paths: "/home/runner/work/TZ2/TZ2/target/surefire-reports"
       if: always()
     - name: Send Message Success
       uses: appleboy/telegram-action@master

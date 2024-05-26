@@ -51,10 +51,10 @@ jobs:
         to: ${{ secrets.TELEGRAMCHANNELID }}
         token: ${{ secrets.TELEGRAMAPIKEY }}
       env:
-        MESSAGE: ${{Проект завершился с ошибкой. Лог тестирования}}
+        MES: ${{Проект завершился с ошибкой. Лог тестирования}}
         FAILED_TESTS: ${{ steps.test-report.outputs.failures }}
         message: | 
-          ${{ env.MESSAGE }} ${{ env.FAILED_TESTS }}
+          ${{ env.MES }} ${{ env.FAILED_TESTS }}
         chat_id: ${{ secrets.CHAT_ID }}
         
     - name: Fetch Test Report

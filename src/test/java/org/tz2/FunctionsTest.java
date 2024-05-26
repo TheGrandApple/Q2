@@ -104,5 +104,15 @@ public class FunctionsTest {
             long sumTotal = Functions.mult(numbers);
         });
     }
+
+    @Test
+    void checkTime() {
+        long[] numbers = Functions.readFile("testMax.txt");
+        
+        Thread.sleep(300);
+        long maxTotal = Functions.max(numbers);
+
+        assertEquals(92, maxTotal);
+    }
 }
 

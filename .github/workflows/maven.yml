@@ -46,4 +46,4 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAMCHANNELID }}
         token: ${{ secrets.TELEGRAMAPIKEY }}
-        message: "Tests failed! Check the details. Failed tests: FAILED_TESTS=$(gh run list -L 1 --failed)}"
+        message: "Tests failed! Check the details. Failed tests: FAILED_TESTS=$(gh run list -L 1 --failed)"

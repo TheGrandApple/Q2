@@ -42,11 +42,11 @@ jobs:
         token: ${{ secrets.TELEGRAMAPIKEY }}
         message: "Tests passed successfully! Good job!"
 
-    - name: Test Summary
-      uses: test-summary/action@v2
+    - name: Create test summary
+      uses: ./bin
       with:
-        paths: "target/surefire-reports/*.xml"
-      if: always()
+        paths: test/results/*.xml
+        output: test/results/results.html
 
     - name: Send Message Fail
       uses: appleboy/telegram-action@master

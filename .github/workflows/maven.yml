@@ -41,6 +41,7 @@ jobs:
         token: ${{ secrets.TELEGRAMAPIKEY }}
         message: "Tests passed successfully! Good job!"
     - name: Send Message Fail
+      uses: appleboy/telegram-action@master
       if: failure()
       with:
         to: ${{ secrets.TELEGRAMCHANNELID }}

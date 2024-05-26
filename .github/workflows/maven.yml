@@ -42,11 +42,12 @@ jobs:
         token: ${{ secrets.TELEGRAMAPIKEY }}
         message: "Tests passed successfully! Good job!"
 
-    - name: Create test summary
-      uses: ./bin
+    - name: Archive Rest Results
+      uses: actions/upload-artifact@v1
       with:
-        paths: test/results/*.xml
-        output: test/results/results.html
+        name: test-results
+        path: app/build/reports/tests
+      if: always()
 
     - name: Send Message Fail
       uses: appleboy/telegram-action@master

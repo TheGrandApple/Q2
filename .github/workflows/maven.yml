@@ -33,12 +33,7 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Tests
       run: mvn test --file pom.xml
-    - name: Test Summary
-      id: test_summary
-      uses: test-summary/action@v2
-      with:
-        paths: "/home/runner/work/TZ2/TZ2/target/surefire-reports"
-      if: always()
+   
     - name: Send Message Success
       uses: appleboy/telegram-action@master
       if: success()
@@ -46,13 +41,19 @@ jobs:
         to: ${{ secrets.TELEGRAMCHANNELID }}
         token: ${{ secrets.TELEGRAMAPIKEY }}
         message: "Tests passed successfully! Good job!"
+
+    - name: Test Summary
+      uses: test-summary/action@v2
+      with:
+        paths: "target/surefire-reports/*.xml"
+      if: always()
+
     - name: Send Message Fail
       uses: appleboy/telegram-action@master
-      if: failure()
+      if: failure() 
       with:
         to: ${{ secrets.TELEGRAMCHANNELID }}
         token: ${{ secrets.TELEGRAMAPIKEY }}
         "message": "${{ steps.test_summary.outputs.passed }}/${{ steps.test_summary.outputs.total }} tests passed"
-    - name: Tests report
-      run: coverage report
+
 

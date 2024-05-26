@@ -33,3 +33,9 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Tests
       run: mvn test --file pom.xml
+    - name: Send Telegram Message
+      uses: cbrgm/telegram-github-action@v1
+      with:
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          to: ${{ secrets.TELEGRAM_CHAT_ID }}
+          message: "hi"

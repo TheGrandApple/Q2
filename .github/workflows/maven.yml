@@ -38,4 +38,4 @@ jobs:
       with:
           to: ${{ secrets.TELEGRAMCHANNELID }}
           token: ${{ secrets.TELEGRAMAPIKEY }}
-          if: ${{ job.status == 'success' && 'Tests passed successfully! Good job!' || 'Tests failed! Check the details.' }}
+          message: ${{ job.status == 'success' && 'Tests passed successfully! Good job!' || 'Tests failed! Check the details.' }}

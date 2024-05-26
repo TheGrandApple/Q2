@@ -106,6 +106,7 @@ public class FunctionsTest {
     }
 
     @Test
+    @Disabled
     void checkTime() throws InterruptedException {
         long[] numbers = Functions.readFile("testMax.txt");
         

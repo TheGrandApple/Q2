@@ -34,7 +34,7 @@ jobs:
     - name: Tests
       run: mvn test --file pom.xml
     - name: Send Telegram Message
-      uses: cbrgm/telegram-github-action@v4
+      uses: appleboy/telegram-action@master
       with:
           to: ${{ secrets.TELEGRAMCHANNELID }}
           token: ${{ secrets.TELEGRAMAPIKEY }}

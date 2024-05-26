@@ -50,7 +50,7 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAMCHANNELID }}
         token: ${{ secrets.TELEGRAMAPIKEY }}
-        run: |
-            MESSAGE="Какие-то тесты были не пройдены:"
-            FAILED_TESTS=$(grep '<<< FAILURE!' target/surefire-reports/org.example.Test.txt)
-            curl -s -X POST https://api.telegram.org/bot${secrets.TELEGRAMAPIKEY}/sendMessage -d "chat_id=${secrets.TELEGRAMCHANNELID}&text=${MESSAGE} ${FAILED_TESTS}"
+        message: |
+          MESSAGE="Проект завершился с ошибкой. Лог тестирования:"
+          FAILED_TESTS=$(grep '<<< FAILURE!' target/surefire-reports/org.example.Test.txt)
+          echo "$MESSAGE $FAILED_TESTS"

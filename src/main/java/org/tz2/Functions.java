@@ -3,15 +3,29 @@ package org.tz2;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 import static java.lang.Math.abs;
 
 public class Functions
 {
     public static void main( String[] args ) throws IOException {
-        long[] numbers = readFile("input.txt");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите путь к файлу");
+        String path = scanner.nextLine();
+        long[] numbers = readFile(path);
+        System.out.println("Сумма чисел:");
+        long s = sum(numbers);
+        System.out.println(s);
+        System.out.println("Произведение чисел:");
         long pr = mult(numbers);
         System.out.println(pr);
+        System.out.println("Минимум из чисел:");
+        long mn = min(numbers);
+        System.out.println(mn);
+        System.out.println("Максимум из чисел:");
+        long mx = max(numbers);
+        System.out.println(mx);
     }
 
     public static long[] readFile(String filename) {
@@ -51,7 +65,7 @@ public class Functions
     public static long mult(long[] list) {
         long pr = 1;
         for (int i = 0; i < list.length; i++) {
-            if (abs(Long.MAX_VALUE / pr) < abs(list[i])) {
+            if ((pr != 0) && (abs(Long.MAX_VALUE / pr) < abs(list[i]))) {
                 throw new ArithmeticException();
             }
             pr *= list[i];

@@ -115,5 +115,14 @@ public class FunctionsTest {
 
         assertEquals(92, maxTotal);
     }
+
+    @Test
+    void wrongOnPurposeTime() {
+        long[] numbers = Functions.readFile("testMax.txt");
+
+        long maxTotal = Functions.max(numbers);
+
+        assertEquals(91, maxTotal);
+    }
 }
 

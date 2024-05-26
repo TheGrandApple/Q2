@@ -42,11 +42,10 @@ jobs:
         token: ${{ secrets.TELEGRAMAPIKEY }}
         message: "Tests passed successfully! Good job!"
 
-    - name: Archive Rest Results
-      uses: actions/upload-artifact@v1
+    - name: Test Summary
+      uses: test-summary/action@v2
       with:
-        name: test-results
-        path: app/build/reports/tests
+        paths: "target/surefire-reports/*.xml"
       if: always()
 
     - name: Send Message Fail
@@ -55,6 +54,6 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAMCHANNELID }}
         token: ${{ secrets.TELEGRAMAPIKEY }}
-        "message": "${{ steps.test_summary.outputs.passed }}/${{ steps.test_summary.outputs.total }} tests passed"
+        "message": "${{ steps.test_summary.outputs.failed}}"
 
 

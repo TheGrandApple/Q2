@@ -33,6 +33,12 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Tests
       run: mvn test --file pom.xml
+    - name: Test Summary
+      id: test_summary
+      uses: test-summary/action@v2
+      with:
+        paths: "test/results/**/TEST-*.xml"
+      if: always()
     - name: Send Message Success
       uses: appleboy/telegram-action@master
       if: success()
@@ -46,4 +52,5 @@ jobs:
       with:
         to: ${{ secrets.TELEGRAMCHANNELID }}
         token: ${{ secrets.TELEGRAMAPIKEY }}
-        message: "Tests failed! Check the details. Failed tests: {FAILED_TESTS=$(gh run list -L 1 --failed)}"
+        "message": "${{ steps.test_summary.outputs.passed }}/${{ steps.test_summary.outputs.total }} tests passed"
+

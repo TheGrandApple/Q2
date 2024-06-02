@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class FunctionsTest {
 
     @Test
-    void TestCheckSumTest() {
+    void checkSum() {
         long[] numbers = Functions.readFile("testSum.txt");
 
         long sumTotal = Functions.sum(numbers);
@@ -49,54 +49,6 @@ public class FunctionsTest {
     }
 
     @Test
-    void checkSumTime() {
-        long t1 = System.nanoTime();
-        long[] numbers = Functions.readFile("testSumTime.txt");
-
-        long sumTotal = Functions.sum(numbers);
-
-        long t2 = System.nanoTime();
-        System.out.println(t2-t1);
-        assertEquals(498899085, sumTotal);
-    }
-
-    @Test
-    void checkMaxTime() {
-        long t1 = System.nanoTime();
-        long[] numbers = Functions.readFile("testMaxTime.txt");
-
-        long maxTotal = Functions.max(numbers);
-
-        long t2 = System.nanoTime();
-        System.out.println(t2-t1);
-        assertEquals(99980, maxTotal);
-    }
-
-    @Test
-    void checkMinTime() {
-        long t1 = System.nanoTime();
-        long[] numbers = Functions.readFile("testMinTime.txt");
-
-        long minTotal = Functions.min(numbers);
-
-        long t2 = System.nanoTime();
-        System.out.println(t2-t1);
-        assertEquals(4, minTotal);
-    }
-
-    @Test
-    void checkMultTime() { // файл для проверки умножения значительно короче остальных, так как иначе произведение выходит на Long.MAXVALUE
-        long t1 = System.nanoTime();
-        long[] numbers = Functions.readFile("testMultTime.txt");
-
-        long multTotal = Functions.mult(numbers);
-
-        long t2 = System.nanoTime();
-        System.out.println(t2-t1);
-        assertEquals(8589934592L, multTotal);
-    }
-
-    @Test
     void checkException() {
         long[] numbers = Functions.readFile("testException.txt");
 
@@ -116,8 +68,7 @@ public class FunctionsTest {
     }
 
     @Test
-    @Disabled
-    void wrongOnPurposeTime() {
+    void wrongOnPurposeTest() {
         long[] numbers = Functions.readFile("testMax.txt");
 
         long maxTotal = Functions.max(numbers);

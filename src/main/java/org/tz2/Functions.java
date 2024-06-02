@@ -46,6 +46,7 @@ public class Functions
     }
 
     public static long sum(long[] list) {
+        long t1 = System.nanoTime();
         long s = 0;
         for (int i = 0; i < list.length; i++) {
             if (list[i] > 0) {
@@ -59,10 +60,13 @@ public class Functions
             }
             s += list[i];
         }
+        long t2 = System.nanoTime();
+        System.out.println(t2-t1);
         return s;
     }
 
     public static long mult(long[] list) {
+        long t1 = System.nanoTime();
         long pr = 1;
         for (int i = 0; i < list.length; i++) {
             if ((pr != 0) && (abs(Long.MAX_VALUE / pr) < abs(list[i]))) {
@@ -70,25 +74,33 @@ public class Functions
             }
             pr *= list[i];
         }
+        long t2 = System.nanoTime();
+        System.out.println(t2-t1);
         return pr;
     }
     public static long min(long[] list) {
+        long t1 = System.nanoTime();
         long m = Long.MAX_VALUE;
         for (int i = 0; i < list.length; i++) {
             if (list[i] < m) {
                 m = list[i];
             }
         }
+        long t2 = System.nanoTime();
+        System.out.println(t2-t1);
         return m;
     }
 
     public static long max(long[] list) {
+        long t1 = System.nanoTime();
         long m = Long.MIN_VALUE;
         for (int i = 0; i < list.length; i++) {
             if (list[i] > m) {
                 m = list[i];
             }
         }
+        long t2 = System.nanoTime();
+        System.out.println(t2-t1);
         return m;
     }
 }

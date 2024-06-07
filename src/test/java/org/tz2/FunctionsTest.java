@@ -9,7 +9,6 @@ import java.util.concurrent.TimeUnit;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-@Timeout(value = 300, unit = TimeUnit.MILLISECONDS)
 public class FunctionsTest {
 
     @Test
@@ -51,13 +50,11 @@ public class FunctionsTest {
     @Test
     void checkException() {
         long[] numbers = Functions.readFile("testException.txt");
-
-        assertThrows(ArithmeticException.class, () -> {
-            long sumTotal = Functions.mult(numbers);
-        });
+        assertThrows(ArithmeticException.class, () -> Functions.mult(numbers));
     }
 
     @Test
+    @Timeout(value = 300, unit = TimeUnit.MILLISECONDS)
     void checkTime() throws InterruptedException {
         long[] numbers = Functions.readFile("testMax.txt");
         

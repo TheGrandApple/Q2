@@ -30,10 +30,8 @@ public class Functions
 
     public static long[] readFile(String filename) {
         String line = "";
-        try {
-            BufferedReader reader = new BufferedReader(new FileReader(filename));
+        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
             line = reader.readLine();
-            reader.close();
         } catch (IOException ex) {
             ex.printStackTrace();
         }
